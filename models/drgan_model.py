@@ -51,7 +51,6 @@ class DRGANModel(BaseModel):
                                                            lr=self.args.lr, betas=(0.5, 0.999), weight_decay=1e-4),
                                'optim_D': torch.optim.Adam(itertools.chain(self.networks['netD_C'].parameters(),
                                                                            self.networks['netD_N'].parameters(),
-                                                                           self.networks['netD_N'].parameters(),
                                                                            self.networks['netD_PN'].parameters()),
                                                            lr=self.args.lr, betas=(0.5, 0.999), weight_decay=1e-4)}
             self.schedulers = [get_scheduler(optimizer, self.args) for optimizer in list(self.optimizers.values())]
